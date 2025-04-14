@@ -2,25 +2,28 @@
 
 let arr = [2 ,1 ,2];
 
-function majorElements(nums) {
-	let map = new Map();
-	for(let t of nums){
-		if(map.has(t)){
-			map.set(t , map.get(t)+1);
-		}else{
-			map.set(t , 1);
-		}
-	}
-	let maxElement = 0;
-	let maximum = -1;
-	for(let [key,value] of map){
-		if(maximum < value){
-			maximum = value;
-			maximumElements = key;
-		}
-	}
-	return maxElement;
-}
+var majorityElement = function(nums) {
+    // Initialize sol and cnt to store the solution and its frequency for respective iterations...
+    let sol = 0, cnt = 0;
+    // For every element i in the array...
+    for(let i = 0; i < nums.length; i++ ) {
+        // If cnt is equal to zero, update sol as sol = i
+        if(cnt == 0){
+            sol = nums[i];
+            cnt = 1;
+        }
+        // If i is equal to candidate, increment cnt...
+        else if(sol == nums[i]){
+            cnt++;
+        }
+        // Otherwise, decrement cnt...
+        else{
+            cnt--;
+        }
+    }
+    // Return & print the solution...
+    return sol;
+};
 
-console.log(majorElements(arr));
+console.log(majorityElement(arr));
 
