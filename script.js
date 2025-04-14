@@ -3,9 +3,23 @@
 let arr = [2 ,1 ,2];
 
 function majorElements(nums) {
-	let n = nums.length-1;
-	nums.sort((a,b)=> a-b);
-	return nums[Math.floor(n/2)+1];
+	let map = new Map();
+	for(let t of nums){
+		if(map.has(t)){
+			map.set(t , map.get(t)+1);
+		}else{
+			map.set(t , 1);
+		}
+	}
+	let maxElement = 0;
+	let maximum = -1;
+	for(let [key,value] of map){
+		if(maximum < value){
+			maximum = value;
+			maximumElements = key;
+		}
+	}
+	return maxElement;
 }
 
 console.log(majorElements(arr));
