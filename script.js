@@ -1,7 +1,7 @@
 //your code here
 
 let arr = [2 ,1 ,2];
-function majorityElement(nums) {
+function majorElement(nums) {
     let candidate = null;
     let count = 0;
 
@@ -34,5 +34,5 @@ function majorityElement(nums) {
 }
 
 
-console.log(majorityElement(arr));
+console.log(majorElement(arr));
 
