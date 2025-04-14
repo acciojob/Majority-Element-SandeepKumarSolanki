@@ -34,5 +34,5 @@ function majorElement(nums) {
 }
 
 
-export default majorElement;
+module.exports =  majorElement;
 
