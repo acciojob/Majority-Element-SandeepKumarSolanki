@@ -1,29 +1,38 @@
 //your code here
 
 let arr = [2 ,1 ,2];
+function majorityElement(nums) {
+    let candidate = null;
+    let count = 0;
 
-var majorityElement = function(nums) {
-    // Initialize sol and cnt to store the solution and its frequency for respective iterations...
-    let sol = 0, cnt = 0;
-    // For every element i in the array...
-    for(let i = 0; i < nums.length; i++ ) {
-        // If cnt is equal to zero, update sol as sol = i
-        if(cnt == 0){
-            sol = nums[i];
-            cnt = 1;
-        }
-        // If i is equal to candidate, increment cnt...
-        else if(sol == nums[i]){
-            cnt++;
-        }
-        // Otherwise, decrement cnt...
-        else{
-            cnt--;
+    // First pass: Find a potential candidate
+    for (let num of nums) {
+        if (count === 0) {
+            candidate = num;
+            count = 1;
+        } else if (num === candidate) {
+            count++;
+        } else {
+            count--;
         }
     }
-    // Return & print the solution...
-    return sol;
-};
+
+    // Second pass: Verify the candidate
+    count = 0;
+    for (let num of nums) {
+        if (num === candidate) {
+            count++;
+        }
+    }
+
+    if (count > Math.floor(nums.length / 2)) {
+        return candidate;
+    }
+
+    // In case there's no majority element (though the problem guarantees one exists)
+    return null;
+}
+
 
 console.log(majorityElement(arr));
 
