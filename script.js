@@ -34,5 +34,5 @@ function majorElement(nums) {
 }
 
 
-console.log(majorElement(arr));
+export default majorElement;
 
